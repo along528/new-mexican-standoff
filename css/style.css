@@ -12,6 +12,14 @@
   --color-text-muted: #666;
   --color-accent: #c4782a;
   --color-border: #2a2a2a;
+  --serape: linear-gradient(to right,
+    #c1272d 0%, #c1272d 14%,
+    #e8702a 14%, #e8702a 28%,
+    #f0c040 28%, #f0c040 42%,
+    #1a9988 42%, #1a9988 57%,
+    #d4326d 57%, #d4326d 71%,
+    #1b4965 71%, #1b4965 85%,
+    #c1272d 85%, #c1272d 100%);
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'Courier New', Courier, monospace;
   --max-width: 960px;
@@ -116,8 +124,18 @@ section {
   top: 0;
   z-index: 100;
   background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: none;
   height: var(--header-height);
+}
+
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--serape);
 }
 
 .site-header .container {
@@ -277,12 +295,24 @@ section {
 .band-photo .photo-wrapper {
   position: relative;
   display: block;
+  padding-bottom: 4px;
+  background: var(--serape);
 }
 
 .band-photo img {
   width: 100%;
   display: block;
   filter: grayscale(100%) contrast(1.15) brightness(0.9);
+}
+
+.band-photo .photo-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--serape);
 }
 
 /* ============================================
@@ -424,9 +454,20 @@ section {
    Footer
    ============================================ */
 .site-footer {
-  border-top: 1px solid var(--color-border);
+  border-top: none;
   padding: 3rem 0 2rem;
   text-align: left;
+  position: relative;
+}
+
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--serape);
 }
 
 .footer-tagline {
