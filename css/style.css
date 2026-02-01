@@ -1,0 +1,441 @@
+/* ============================================
+   CSS Custom Properties
+   ============================================ */
+:root {
+  --color-bg: #000;
+  --color-text: #fff;
+  --color-text-muted: #999;
+  --color-accent: #fff;
+  --color-border: #333;
+  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --max-width: 960px;
+  --gutter: 1.25rem;
+  --header-height: 3.5rem;
+}
+
+/* ============================================
+   Reset & Base
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-stack);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================
+   Typography
+   ============================================ */
+h1, h2, h3 {
+  line-height: 1.15;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.125rem; }
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+section {
+  padding: 3rem 0;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  height: var(--header-height);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.brand:hover {
+  text-decoration: none;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-icons {
+  display: none;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.social-icons a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.social-icons svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--color-text);
+}
+
+/* Hamburger */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-text);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================
+   Mobile Menu
+   ============================================ */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: var(--header-height);
+  background: var(--color-bg);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu a {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+}
+
+.mobile-menu .social-icons {
+  display: flex;
+}
+
+/* ============================================
+   Hero
+   ============================================ */
+.hero {
+  padding: 5rem 0 3rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+/* ============================================
+   About
+   ============================================ */
+.about {
+  border-top: 1px solid var(--color-border);
+}
+
+.about p {
+  font-size: 1.0625rem;
+  max-width: 640px;
+}
+
+/* ============================================
+   Weapons
+   ============================================ */
+.weapons {
+  border-top: 1px solid var(--color-border);
+}
+
+.weapons p {
+  font-size: 1.0625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* ============================================
+   Shows
+   ============================================ */
+.shows {
+  border-top: 1px solid var(--color-border);
+}
+
+.shows h2 {
+  margin-bottom: 1.5rem;
+}
+
+.show-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.show-item {
+  border: 1px solid var(--color-border);
+  padding: 1.25rem;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.show-venue {
+  font-weight: 700;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+}
+
+.show-location {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+}
+
+.show-date {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.show-ticket {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--color-text);
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.show-ticket:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+.past-shows-link {
+  margin-top: 2rem;
+}
+
+.past-shows-link a {
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--color-text);
+  padding-bottom: 0.125rem;
+}
+
+.past-shows-link a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+/* ============================================
+   Band Photo
+   ============================================ */
+.band-photo {
+  padding: 2rem 0;
+}
+
+.band-photo img {
+  width: 100%;
+}
+
+/* ============================================
+   Contact
+   ============================================ */
+.contact {
+  border-top: 1px solid var(--color-border);
+}
+
+.contact a {
+  border-bottom: 1px solid var(--color-text);
+  padding-bottom: 0.125rem;
+}
+
+.contact a:hover {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 3rem 0 2rem;
+  text-align: center;
+}
+
+.footer-tagline {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.footer-location {
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.site-footer .social-icons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.footer-copyright {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   Previous Shows Page
+   ============================================ */
+.page-heading {
+  padding: 3rem 0 1rem;
+}
+
+.page-heading h1 {
+  font-size: 2rem;
+}
+
+/* ============================================
+   Responsive — min 768px
+   ============================================ */
+@media (min-width: 768px) {
+  :root {
+    --gutter: 2rem;
+  }
+
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2rem; }
+
+  .hero h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+  }
+
+  .social-icons {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .show-list {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  .show-item {
+    padding: 1.5rem;
+  }
+
+  .about p,
+  .weapons p {
+    font-size: 1.125rem;
+  }
+}
