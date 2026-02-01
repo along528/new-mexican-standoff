@@ -10,7 +10,7 @@
   --color-bg: #0a0a0a;
   --color-text: #f0ece4;
   --color-text-muted: #666;
-  --color-accent: #c4782a;
+  --color-accent: #e8702a;
   --color-border: #2a2a2a;
   --serape: linear-gradient(to right,
     #c1272d 0%, #c1272d 14%,
@@ -275,7 +275,16 @@ section {
 }
 
 .hero .hero-accent {
-  color: var(--color-accent);
+  animation: serape-cycle 30s infinite;
+}
+
+@keyframes serape-cycle {
+  0%, 100%  { color: #c1272d; }
+  17%       { color: #e8702a; }
+  33%       { color: #f0c040; }
+  50%       { color: #1a9988; }
+  67%       { color: #d4326d; }
+  83%       { color: #1b4965; }
 }
 
 .hero .hero-tagline {
