@@ -1,17 +1,18 @@
 /* ============================================
    Google Fonts
    ============================================ */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rye&display=swap');
 
 /* ============================================
    CSS Custom Properties
    ============================================ */
 :root {
-  --color-bg: #0a0a0a;
-  --color-text: #f0ece4;
-  --color-text-muted: #666;
-  --color-accent: #e8702a;
-  --color-border: #2a2a2a;
+  --color-bg: #110f0a;
+  --color-text: #e8dcc8;
+  --color-text-muted: #7a6f60;
+  --color-accent: #c1272d;
+  --color-gold: #c9a84c;
+  --color-border: #3a2e1e;
   --serape: linear-gradient(to right,
     #c1272d 0%, #c1272d 14%,
     #e8702a 14%, #e8702a 28%,
@@ -20,11 +21,34 @@
     #d4326d 57%, #d4326d 71%,
     #1b4965 71%, #1b4965 85%,
     #c1272d 85%, #c1272d 100%);
-  --font-display: 'Bebas Neue', sans-serif;
+  --font-display: 'Rye', cursive;
   --font-body: 'Courier New', Courier, monospace;
   --max-width: 960px;
   --gutter: 1.25rem;
   --header-height: 3.5rem;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes serape-cycle {
+  0%, 100%  { color: #c1272d; }
+  17%       { color: #e8702a; }
+  33%       { color: #f0c040; }
+  50%       { color: #1a9988; }
+  67%       { color: #d4326d; }
+  83%       { color: #1b4965; }
 }
 
 /* ============================================
@@ -99,7 +123,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-accent);
+  color: var(--color-gold);
 }
 
 /* ============================================
@@ -114,6 +138,32 @@ a:hover {
 
 section {
   padding: 3.5rem 0;
+}
+
+/* ============================================
+   Crosshair Section Divider
+   ============================================ */
+.about,
+.shows,
+.contact {
+  border-top: 1px solid var(--color-border);
+  position: relative;
+}
+
+.about::before,
+.shows::before,
+.contact::before {
+  content: '+';
+  position: absolute;
+  top: -0.6em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.25rem;
+  color: var(--color-gold);
+  background: var(--color-bg);
+  padding: 0 0.75rem;
+  letter-spacing: 0;
+  line-height: 1;
 }
 
 /* ============================================
@@ -157,7 +207,7 @@ section {
 
 .brand:hover {
   text-decoration: none;
-  color: var(--color-accent);
+  color: var(--color-gold);
 }
 
 .header-right {
@@ -193,7 +243,7 @@ section {
 }
 
 .social-icons a:hover svg {
-  fill: var(--color-accent);
+  fill: var(--color-gold);
 }
 
 /* Hamburger */
@@ -264,14 +314,42 @@ section {
    ============================================ */
 .hero {
   padding: 5rem 0 3rem;
-  text-align: left;
+  text-align: center;
+  animation: fade-in-up 1.2s ease-out both;
+}
+
+/* Standoff titles — "The Good / The Bad / The Ugly" */
+.standoff-titles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  animation: fade-in-up 0.8s ease-out both;
+}
+
+.standoff-label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--color-gold);
+}
+
+.standoff-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
 }
 
 .hero h1 {
-  font-size: 5.9rem;
+  font-size: 4.5rem;
   margin-bottom: 1.25rem;
   line-height: 0.95;
   letter-spacing: 0.04em;
+  animation: fade-in-up 1s ease-out 0.2s both;
 }
 
 .hero-word {
@@ -279,23 +357,27 @@ section {
 }
 
 .hero .hero-accent {
-  animation: serape-cycle 30s infinite;
-}
-
-@keyframes serape-cycle {
-  0%, 100%  { color: #c1272d; }
-  17%       { color: #e8702a; }
-  33%       { color: #f0c040; }
-  50%       { color: #1a9988; }
-  67%       { color: #d4326d; }
-  83%       { color: #1b4965; }
+  animation: serape-cycle 45s infinite;
 }
 
 .hero .hero-tagline {
-  font-size: clamp(0.8125rem, 2vw, 1rem);
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
   color: var(--color-text-muted);
   font-style: italic;
   letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  animation: fade-in-up 1s ease-out 0.6s both;
+}
+
+.tagline-rule {
+  display: inline-block;
+  width: 3rem;
+  height: 1px;
+  background: var(--color-border);
+  flex-shrink: 0;
 }
 
 /* ============================================
@@ -308,33 +390,41 @@ section {
 .band-photo .photo-wrapper {
   position: relative;
   display: block;
-  padding-bottom: 4px;
+  padding-bottom: 2px;
   background: var(--serape);
 }
 
 .band-photo img {
   width: 100%;
   display: block;
-  filter: grayscale(100%) contrast(1.15) brightness(0.9);
+  filter: sepia(100%) contrast(1.1) brightness(0.85);
 }
 
-.band-photo .photo-wrapper::after {
+.band-photo .photo-wrapper::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 4px;
+  height: 2px;
   background: var(--serape);
+  z-index: 1;
+}
+
+/* Letterbox bars */
+.band-photo .photo-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border-top: clamp(16px, 4vw, 40px) solid #000;
+  border-bottom: clamp(16px, 4vw, 40px) solid #000;
 }
 
 /* ============================================
    About
    ============================================ */
-.about {
-  border-top: 1px solid var(--color-border);
-}
-
 .about p {
   font-size: 0.875rem;
   max-width: 600px;
@@ -344,17 +434,13 @@ section {
 .weapons-line {
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--color-accent);
+  color: var(--color-gold);
   font-size: 0.8125rem;
 }
 
 /* ============================================
    Shows
    ============================================ */
-.shows {
-  border-top: 1px solid var(--color-border);
-}
-
 .shows h2 {
   margin-bottom: 2rem;
 }
@@ -365,15 +451,46 @@ section {
 }
 
 .show-item {
-  border: 1px solid var(--color-border);
-  padding: 1.25rem;
+  border: 2px solid var(--color-gold);
+  outline: 1px solid var(--color-border);
+  outline-offset: 4px;
+  padding: 1.75rem 1.25rem 1.25rem;
   display: grid;
   gap: 0.5rem;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, outline-color 0.3s;
+  position: relative;
+  background: rgba(201, 168, 76, 0.03);
+}
+
+.show-item::before {
+  content: 'WANTED';
+  position: absolute;
+  top: -0.6em;
+  left: 1rem;
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  background: var(--color-bg);
+  padding: 0 0.5rem;
+  line-height: 1;
+}
+
+.show-item::after {
+  content: '\2605';
+  position: absolute;
+  top: -0.55em;
+  right: 1rem;
+  font-size: 0.75rem;
+  color: var(--color-gold);
+  background: var(--color-bg);
+  padding: 0 0.5rem;
+  line-height: 1;
 }
 
 .show-item:hover {
   border-color: var(--color-accent);
+  outline-color: var(--color-accent);
 }
 
 .show-venue {
@@ -395,7 +512,7 @@ section {
   font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 400;
-  color: var(--color-accent);
+  color: var(--color-gold);
   line-height: 1;
   letter-spacing: 0.04em;
 }
@@ -404,19 +521,19 @@ section {
   display: inline-block;
   margin-top: 0.5rem;
   padding: 0.4rem 1.25rem;
-  border: 1px solid var(--color-text);
-  color: var(--color-text);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
   text-transform: uppercase;
   font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.12em;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .show-ticket:hover {
   background: var(--color-accent);
   border-color: var(--color-accent);
-  color: var(--color-bg);
+  color: var(--color-text);
   text-decoration: none;
 }
 
@@ -437,30 +554,26 @@ section {
 
 .past-shows-link a:hover {
   text-decoration: none;
-  color: var(--color-accent);
-  border-color: var(--color-accent);
+  color: var(--color-gold);
+  border-color: var(--color-gold);
 }
 
 /* ============================================
    Contact
    ============================================ */
-.contact {
-  border-top: 1px solid var(--color-border);
-}
-
 .contact h2 {
   margin-bottom: 1rem;
 }
 
 .contact a {
-  border-bottom: 1px solid var(--color-accent);
+  border-bottom: 1px solid var(--color-gold);
   padding-bottom: 0.125rem;
   transition: color 0.3s;
 }
 
 .contact a:hover {
   text-decoration: none;
-  color: var(--color-accent);
+  color: var(--color-gold);
 }
 
 /* ============================================
@@ -503,6 +616,14 @@ section {
   margin-bottom: 1.5rem;
 }
 
+.footer-production {
+  font-size: 0.5625rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.75rem;
+}
+
 .footer-copyright {
   font-size: 0.625rem;
   color: var(--color-text-muted);
@@ -533,11 +654,15 @@ section {
   h2 { font-size: 2.25rem; }
 
   .hero h1 {
-    font-size: 5.9rem;
+    font-size: 6.5rem;
   }
 
   .hero .hero-tagline {
     font-size: 1rem;
+  }
+
+  .tagline-rule {
+    width: 5rem;
   }
 
   .social-icons {
@@ -553,7 +678,7 @@ section {
   }
 
   .show-item {
-    padding: 1.5rem;
+    padding: 2rem 1.5rem 1.5rem;
   }
 
   .about p {
