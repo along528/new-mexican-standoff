@@ -1,13 +1,19 @@
 /* ============================================
+   Google Fonts
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+/* ============================================
    CSS Custom Properties
    ============================================ */
 :root {
-  --color-bg: #000;
-  --color-text: #fff;
-  --color-text-muted: #999;
-  --color-accent: #fff;
-  --color-border: #333;
-  --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --color-bg: #0a0a0a;
+  --color-text: #f0ece4;
+  --color-text-muted: #888;
+  --color-accent: #ff2a1f;
+  --color-border: #f0ece4;
+  --font-display: 'Permanent Marker', cursive;
+  --font-body: 'Courier New', Courier, monospace;
   --max-width: 960px;
   --gutter: 1.25rem;
   --header-height: 3.5rem;
@@ -27,11 +33,25 @@ html {
 }
 
 body {
-  font-family: var(--font-stack);
+  font-family: var(--font-body);
   background: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+/* Film grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
 }
 
 img {
@@ -48,27 +68,31 @@ ul {
    Typography
    ============================================ */
 h1, h2, h3 {
-  line-height: 1.15;
-  font-weight: 700;
+  font-family: var(--font-display);
+  line-height: 1.1;
+  font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
 }
 
 h1 { font-size: 2.25rem; }
-h2 { font-size: 1.5rem; }
+h2 { font-size: 1.75rem; }
 h3 { font-size: 1.125rem; }
 
 p {
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-text);
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--color-accent);
 }
 
 /* ============================================
@@ -93,7 +117,7 @@ section {
   top: 0;
   z-index: 100;
   background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 3px solid var(--color-border);
   height: var(--header-height);
 }
 
@@ -105,15 +129,18 @@ section {
 }
 
 .brand {
-  font-weight: 700;
-  font-size: 1.125rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.25rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   white-space: nowrap;
+  color: var(--color-text);
 }
 
 .brand:hover {
   text-decoration: none;
+  color: var(--color-accent);
 }
 
 .header-right {
@@ -133,7 +160,7 @@ section {
   align-items: center;
   justify-content: center;
   opacity: 0.7;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s, color 0.2s;
 }
 
 .social-icons a:hover {
@@ -145,6 +172,11 @@ section {
   width: 20px;
   height: 20px;
   fill: var(--color-text);
+  transition: fill 0.2s;
+}
+
+.social-icons a:hover svg {
+  fill: var(--color-accent);
 }
 
 /* Hamburger */
@@ -161,13 +193,13 @@ section {
 .hamburger span {
   display: block;
   width: 24px;
-  height: 2px;
+  height: 3px;
   background: var(--color-text);
   transition: transform 0.3s, opacity 0.3s;
 }
 
 .hamburger.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
 }
 
 .hamburger.active span:nth-child(2) {
@@ -175,7 +207,7 @@ section {
 }
 
 .hamburger.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 /* ============================================
@@ -192,6 +224,7 @@ section {
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  border-top: 3px solid var(--color-accent);
 }
 
 .mobile-menu.open {
@@ -199,10 +232,19 @@ section {
 }
 
 .mobile-menu a {
-  font-size: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-weight: 700;
+  font-weight: 400;
+}
+
+.mobile-menu a:nth-child(odd) {
+  transform: rotate(-1.5deg);
+}
+
+.mobile-menu a:nth-child(even) {
+  transform: rotate(1deg);
 }
 
 .mobile-menu .social-icons {
@@ -213,44 +255,118 @@ section {
    Hero
    ============================================ */
 .hero {
-  padding: 5rem 0 3rem;
-  text-align: center;
+  padding: 4rem 0 2rem;
+  text-align: left;
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: clamp(2.5rem, 10vw, 5rem);
   margin-bottom: 1rem;
+  line-height: 0.95;
 }
 
-.hero p {
-  font-size: 1.125rem;
+.hero .hero-accent {
+  color: var(--color-accent);
+}
+
+.hero .hero-tagline {
+  font-size: clamp(1rem, 3vw, 1.25rem);
   color: var(--color-text-muted);
   font-style: italic;
+  display: inline-block;
+  border-bottom: 3px solid var(--color-accent);
+  padding-bottom: 0.25rem;
+  transform: rotate(-1deg);
+}
+
+.hero .hero-decoration {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  margin-top: 1.5rem;
+  transform: rotate(2deg);
+  letter-spacing: 0.2em;
+}
+
+/* ============================================
+   Band Photo
+   ============================================ */
+.band-photo {
+  padding: 2rem 0;
+}
+
+.band-photo .photo-wrapper {
+  position: relative;
+  display: inline-block;
+  transform: rotate(-2deg);
+  border: 6px solid var(--color-text);
+  padding: 0;
+  background: var(--color-text);
+}
+
+/* Tape strips */
+.band-photo .photo-wrapper::before,
+.band-photo .photo-wrapper::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 24px;
+  background: rgba(240, 236, 228, 0.35);
+  z-index: 2;
+  border: 1px solid rgba(240, 236, 228, 0.15);
+}
+
+.band-photo .photo-wrapper::before {
+  top: -10px;
+  left: 20px;
+  transform: rotate(-8deg);
+}
+
+.band-photo .photo-wrapper::after {
+  bottom: -10px;
+  right: 20px;
+  transform: rotate(5deg);
+}
+
+.band-photo img {
+  width: 100%;
+  display: block;
+  filter: grayscale(100%) contrast(1.2);
 }
 
 /* ============================================
    About
    ============================================ */
 .about {
-  border-top: 1px solid var(--color-border);
+  border-top: 3px dashed var(--color-border);
 }
 
 .about p {
-  font-size: 1.0625rem;
+  font-size: 0.875rem;
   max-width: 640px;
+  line-height: 1.7;
 }
 
 /* Weapons line (inside .about) */
 .weapons-line {
+  display: inline-block;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  padding: 0.35rem 0.75rem;
+  transform: rotate(-1deg);
+  font-size: 0.8125rem;
+  margin-top: 0.5rem;
 }
 
 /* ============================================
    Shows
    ============================================ */
 .shows {
-  border-top: 1px solid var(--color-border);
+  border-top: 3px dashed var(--color-border);
 }
 
 .shows h2 {
@@ -263,44 +379,67 @@ section {
 }
 
 .show-item {
-  border: 1px solid var(--color-border);
+  border: 3px solid var(--color-border);
   padding: 1.25rem;
   display: grid;
   gap: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.show-item:nth-child(odd) {
+  transform: rotate(-1deg);
+}
+
+.show-item:nth-child(even) {
+  transform: rotate(0.75deg);
+}
+
+.show-item:hover {
+  transform: rotate(0deg) scale(1.02);
 }
 
 .show-venue {
-  font-weight: 700;
-  font-size: 1.125rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.25rem;
   text-transform: uppercase;
 }
 
 .show-location {
   color: var(--color-text-muted);
-  font-size: 0.9375rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .show-date {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--color-accent);
+  line-height: 1;
 }
 
 .show-ticket {
   display: inline-block;
   margin-top: 0.5rem;
-  padding: 0.5rem 1.25rem;
-  border: 1px solid var(--color-text);
+  padding: 0.5rem 1.5rem;
+  background: var(--color-accent);
+  color: var(--color-bg);
   text-transform: uppercase;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  transition: background 0.2s, color 0.2s;
+  letter-spacing: 0.1em;
+  border: none;
+  transform: rotate(-1.5deg);
+  transition: transform 0.2s, background 0.2s;
 }
 
 .show-ticket:hover {
   background: var(--color-text);
   color: var(--color-bg);
   text-decoration: none;
+  transform: rotate(0deg) scale(1.05);
 }
 
 .past-shows-link {
@@ -312,55 +451,52 @@ section {
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  border-bottom: 1px solid var(--color-text);
+  border-bottom: 3px solid var(--color-accent);
   padding-bottom: 0.125rem;
+  color: var(--color-text);
 }
 
 .past-shows-link a:hover {
   text-decoration: none;
-  opacity: 0.7;
-}
-
-/* ============================================
-   Band Photo
-   ============================================ */
-.band-photo {
-  padding: 2rem 0;
-}
-
-.band-photo img {
-  width: 100%;
+  color: var(--color-accent);
 }
 
 /* ============================================
    Contact
    ============================================ */
 .contact {
-  border-top: 1px solid var(--color-border);
+  border-top: 3px dashed var(--color-border);
+}
+
+.contact h2 {
+  margin-bottom: 1rem;
 }
 
 .contact a {
-  border-bottom: 1px solid var(--color-text);
+  border-bottom: 3px solid var(--color-accent);
   padding-bottom: 0.125rem;
+  font-weight: 700;
 }
 
 .contact a:hover {
   text-decoration: none;
-  opacity: 0.7;
+  color: var(--color-accent);
 }
 
 /* ============================================
    Footer
    ============================================ */
 .site-footer {
-  border-top: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-border);
   padding: 3rem 0 2rem;
-  text-align: center;
+  text-align: left;
 }
 
 .footer-tagline {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 400;
   letter-spacing: 0.05em;
   margin-bottom: 0.25rem;
 }
@@ -372,13 +508,15 @@ section {
 
 .site-footer .social-icons {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 1.5rem;
 }
 
 .footer-copyright {
-  font-size: 0.8125rem;
+  font-size: 0.6875rem;
   color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 /* ============================================
@@ -390,6 +528,7 @@ section {
 
 .page-heading h1 {
   font-size: 2rem;
+  transform: rotate(-1deg);
 }
 
 /* ============================================
@@ -401,13 +540,13 @@ section {
   }
 
   h1 { font-size: 3rem; }
-  h2 { font-size: 2rem; }
+  h2 { font-size: 2.25rem; }
 
   .hero h1 {
-    font-size: 3.5rem;
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
   }
 
-  .hero p {
+  .hero .hero-tagline {
     font-size: 1.25rem;
   }
 
@@ -428,6 +567,10 @@ section {
   }
 
   .about p {
-    font-size: 1.125rem;
+    font-size: 0.9375rem;
+  }
+
+  .page-heading h1 {
+    font-size: 3rem;
   }
 }
