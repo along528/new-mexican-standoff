@@ -433,6 +433,32 @@ section {
   text-decoration: none;
 }
 
+.show-today {
+  border-color: #c1272d;
+  animation: serape-border-cycle 30s infinite;
+}
+
+@keyframes serape-border-cycle {
+  0%, 100%  { border-color: #c1272d; }
+  17%       { border-color: #e8702a; }
+  33%       { border-color: #f0c040; }
+  50%       { border-color: #1a9988; }
+  67%       { border-color: #d4326d; }
+  83%       { border-color: #1b4965; }
+}
+
+.show-today-label {
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+}
+
+.no-shows {
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
+
 .past-shows-link {
   margin-top: 2.5rem;
 }

@@ -114,28 +114,8 @@
   <section class="shows" id="shows">
     <div class="container">
       <h2>Shows</h2>
-      <div class="show-list">
-
-        <!-- === UPCOMING SHOW ===
-             To add a new show, copy this <article> block and update the details.
-             To move a show to past shows, cut this block and paste it into previous-shows.html.
-             ==================== -->
-        <article class="show-item">
-          <div class="show-venue">Walnut St. Coffee Cafe</div>
-          <div class="show-location">Lynn, MA</div>
-          <div class="show-date">3.20</div>
-          <a class="show-ticket" href="https://kweeks14.wixsite.com/cl-newsite/performers" target="_blank" rel="noopener">Info</a>
-        </article>
-
-        <article class="show-item">
-          <div class="show-venue">The Jungle</div>
-          <div class="show-location">Somerville, MA</div>
-          <div class="show-date">4.14</div>
-          <a class="show-ticket" href="https://www.eventbrite.com/e/new-mexican-standoff-bund-aidan-oconnell-tickets-1982095905209" target="_blank" rel="noopener">Info</a>
-        </article>
-        <!-- === END UPCOMING SHOW === -->
-
-      </div>
+      <div class="show-list" id="show-list"></div>
+      <p class="no-shows" id="no-shows" style="display:none">No upcoming shows — check back soon.</p>
 
       <div class="past-shows-link">
         <a href="previous-shows.html">Previous Shows &rarr;</a>
@@ -175,6 +155,8 @@
     </div>
   </footer>
 
+  <script src="js/shows.js"></script>
+
   <!-- ============================================
        Menu Toggle Script
        ============================================ -->
@@ -197,6 +179,7 @@
         });
       });
     })();
+    loadShows('show-list', 'upcoming');
   </script>
 
 </body>
