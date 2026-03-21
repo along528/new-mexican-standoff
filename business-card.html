@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NMS Business Card — Print to PDF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    /* ---- Print-specific: each card is one page at 3.5×2 in ---- */
+    @page {
+      size: 3.5in 2in;
+      margin: 0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      background: #333;
+    }
+
+    .card {
+      width: 3.5in;
+      height: 2in;
+      background: #0a0a0a;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      font-family: 'Courier New', Courier, monospace;
+      color: #f0ece4;
+    }
+
+    /* ---- Serape stripe (top & bottom) ---- */
+    .serape {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(to right,
+        #c1272d 0%, #c1272d 14%,
+        #e8702a 14%, #e8702a 28%,
+        #f0c040 28%, #f0c040 42%,
+        #1a9988 42%, #1a9988 57%,
+        #d4326d 57%, #d4326d 71%,
+        #1b4965 71%, #1b4965 85%,
+        #c1272d 85%, #c1272d 100%
+      );
+    }
+    .serape-top { top: 0; }
+    .serape-bottom { bottom: 0; }
+
+    /* ============================================
+       FRONT
+       ============================================ */
+    .front .content {
+      padding: 0.32in 0.28in;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .band-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .band-name .new {
+      font-size: 0.38in;
+      color: #e8702a;
+      display: block;
+    }
+
+    .band-name .mexican,
+    .band-name .standoff {
+      font-size: 0.38in;
+      color: #f0ece4;
+      display: block;
+    }
+
+    .front .tagline {
+      font-size: 7.5pt;
+      color: #666;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 0.06in;
+    }
+
+    .front .url {
+      font-size: 7.5pt;
+      color: #e8702a;
+      letter-spacing: 0.06em;
+      margin-top: auto;
+      padding-top: 0.1in;
+    }
+
+    /* ============================================
+       BACK
+       ============================================ */
+    .back .content {
+      padding: 0.26in 0.28in 0.22in;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .back .section-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 10pt;
+      color: #666;
+      letter-spacing: 0.14em;
+      font-weight: 400;
+    }
+
+    .back .email {
+      font-size: 8pt;
+      color: #f0ece4;
+      letter-spacing: 0.03em;
+      margin-top: 0.04in;
+    }
+
+    .back .divider {
+      width: 1.6in;
+      height: 1px;
+      background: #2a2a2a;
+      margin: 0.1in 0;
+    }
+
+    .social-row {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 0.05in;
+    }
+
+    .social-row .label {
+      font-size: 6.5pt;
+      color: #666;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      width: 0.82in;
+      flex-shrink: 0;
+    }
+
+    .social-row .handle {
+      font-size: 8pt;
+      color: #f0ece4;
+    }
+
+    .back .url {
+      font-size: 7.5pt;
+      color: #e8702a;
+      letter-spacing: 0.06em;
+      margin-top: 0.06in;
+    }
+
+    .back .location {
+      font-size: 6pt;
+      color: #666;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: auto;
+    }
+
+    /* ---- Screen preview only ---- */
+    @media screen {
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        padding: 40px 20px;
+      }
+      .card {
+        border-radius: 4px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+      }
+      .page-label {
+        font-family: 'Courier New', monospace;
+        color: #999;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+    }
+
+    @media print {
+      body { background: none; }
+      .page-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="page-label">Front</span>
+
+  <!-- ======== FRONT ======== -->
+  <div class="card front">
+    <div class="serape serape-top"></div>
+    <div class="content">
+      <div class="band-name">
+        <span class="new">&iexcl;New!</span>
+        <span class="mexican">Mexican</span>
+        <span class="standoff">Standoff</span>
+      </div>
+      <div class="tagline">Improvised Music Duo</div>
+      <div class="url">newmexicanstandoff.com</div>
+    </div>
+    <div class="serape serape-bottom"></div>
+  </div>
+
+  <span class="page-label">Back</span>
+
+  <!-- ======== BACK ======== -->
+  <div class="card back">
+    <div class="serape serape-top"></div>
+    <div class="content">
+      <div class="section-label">Booking</div>
+      <div class="email">info@newmexicanstandoff.com</div>
+      <div class="divider"></div>
+
+      <div class="social-row">
+        <span class="label">Instagram</span>
+        <span class="handle">@newmexband</span>
+      </div>
+      <div class="social-row">
+        <span class="label">SoundCloud</span>
+        <span class="handle">@newmexicanstandoff</span>
+      </div>
+      <div class="social-row">
+        <span class="label">YouTube</span>
+        <span class="handle">@newmexicanstandoff</span>
+      </div>
+
+      <div class="divider"></div>
+      <div class="url">newmexicanstandoff.com</div>
+      <div class="location">Boston, MA</div>
+    </div>
+    <div class="serape serape-bottom"></div>
+  </div>
+
+</body>
+</html>
