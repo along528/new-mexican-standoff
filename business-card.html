@@ -7,9 +7,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
-    /* ---- Print-specific: each card is one page at 3.5×2 in ---- */
+    /* ---- MOO print zones (standard US business card) ----
+       Bleed:     3.66 × 2.16 in  (document / @page size)
+       Trim:      3.50 × 2.00 in  (0.08in inside bleed)
+       Safe area: 3.34 × 1.84 in  (0.08in inside trim)
+       All text must stay within the safe area = 0.16in from document edge.
+       Background & serape stripes extend to bleed edge.
+       ------------------------------------------------------------ */
     @page {
-      size: 3.5in 2in;
+      size: 3.66in 2.16in;
       margin: 0;
     }
 
@@ -21,8 +27,8 @@
     }
 
     .card {
-      width: 3.5in;
-      height: 2in;
+      width: 3.66in;
+      height: 2.16in;
       background: #0a0a0a;
       position: relative;
       overflow: hidden;
@@ -36,7 +42,7 @@
       position: absolute;
       left: 0;
       right: 0;
-      height: 4px;
+      height: 0.2in;
       background: linear-gradient(to right,
         #c1272d 0%, #c1272d 14%,
         #e8702a 14%, #e8702a 28%,
@@ -54,7 +60,9 @@
        FRONT
        ============================================ */
     .front .content {
-      padding: 0.32in 0.28in;
+      /* 0.08in bleed + 0.08in safe-area inset from trim = 0.16in min;
+         using larger values for aesthetic breathing room */
+      padding: 0.40in 0.36in;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -84,7 +92,7 @@
 
     .front .tagline {
       font-size: 7.5pt;
-      color: #666;
+      color: #f0ece4;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-top: 0.06in;
@@ -102,7 +110,8 @@
        BACK
        ============================================ */
     .back .content {
-      padding: 0.26in 0.28in 0.22in;
+      /* 0.08in bleed + 0.08in safe-area inset from trim = 0.16in min */
+      padding: 0.34in 0.36in 0.30in;
       display: flex;
       flex-direction: column;
       height: 100%;
@@ -111,7 +120,7 @@
     .back .section-label {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 10pt;
-      color: #666;
+      color: #f0ece4;
       letter-spacing: 0.14em;
       font-weight: 400;
     }
@@ -138,7 +147,7 @@
 
     .social-row .label {
       font-size: 6.5pt;
-      color: #666;
+      color: #f0ece4;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       width: 0.82in;
@@ -159,7 +168,7 @@
 
     .back .location {
       font-size: 6pt;
-      color: #666;
+      color: #f0ece4;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       margin-top: auto;
@@ -178,9 +187,19 @@
         border-radius: 4px;
         box-shadow: 0 4px 24px rgba(0,0,0,0.5);
       }
+      /* Trim line overlay — screen only, not printed */
+      .trim-guide {
+        position: absolute;
+        top: 0.08in;
+        left: 0.08in;
+        right: 0.08in;
+        bottom: 0.08in;
+        border: 1px dashed rgba(255,255,255,0.2);
+        pointer-events: none;
+      }
       .page-label {
         font-family: 'Courier New', monospace;
-        color: #999;
+        color: #f0ece4;
         font-size: 11px;
         text-transform: uppercase;
         letter-spacing: 0.1em;
@@ -188,8 +207,8 @@
     }
 
     @media print {
-      body { background: none; }
-      .page-label { display: none; }
+      body { background: #0a0a0a; }
+      .page-label, .trim-guide { display: none; }
     }
   </style>
 </head>
@@ -200,6 +219,7 @@
   <!-- ======== FRONT ======== -->
   <div class="card front">
     <div class="serape serape-top"></div>
+    <div class="trim-guide"></div>
     <div class="content">
       <div class="band-name">
         <span class="new">&iexcl;New!</span>
@@ -217,6 +237,7 @@
   <!-- ======== BACK ======== -->
   <div class="card back">
     <div class="serape serape-top"></div>
+    <div class="trim-guide"></div>
     <div class="content">
       <div class="section-label">Booking</div>
       <div class="email">info@newmexicanstandoff.com</div>
