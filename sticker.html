@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>NMS Sticker — Print to PDF</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    /* ---- 3-inch circular sticker ----
+       Page:   3.5 × 3.5 in (square, with margin for circle)
+       Circle: 3.0 in diameter
+       ------------------------------------------------------------ */
+    @page {
+      size: 3.5in 3.5in;
+      margin: 0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      background: #333;
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .sticker-wrap {
+      width: 3.5in;
+      height: 3.5in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0a0a0a;
+    }
+
+    .sticker {
+      width: 3.0in;
+      height: 3.0in;
+      border-radius: 50%;
+      background: #0a0a0a;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ---- Serape ring ---- */
+    .sticker::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      padding: 0.1in;
+      background: conic-gradient(
+        #c1272d 0deg,   #c1272d 60deg,
+        #e8702a 60deg,  #e8702a 120deg,
+        #f0c040 120deg, #f0c040 180deg,
+        #1a9988 180deg, #1a9988 240deg,
+        #d4326d 240deg, #d4326d 300deg,
+        #1b4965 300deg, #1b4965 360deg
+      );
+      -webkit-mask:
+        radial-gradient(farthest-side, transparent calc(100% - 0.1in), #000 calc(100% - 0.1in));
+      mask:
+        radial-gradient(farthest-side, transparent calc(100% - 0.1in), #000 calc(100% - 0.1in));
+    }
+
+    /* ---- Text ---- */
+    .new-text {
+      font-size: 0.9in;
+      line-height: 1;
+      color: #e8702a;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+      margin-top: -0.1in;
+    }
+
+    .band-text {
+      font-size: 0.25in;
+      line-height: 1;
+      color: #f0ece4;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+      margin-top: 0.08in;
+    }
+
+    /* ---- Screen preview ---- */
+    @media screen {
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 40px 20px;
+      }
+      .sticker-wrap {
+        border-radius: 4px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+      }
+      .page-label {
+        font-family: 'Courier New', monospace;
+        color: #f0ece4;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+    }
+
+    @media print {
+      body { background: #0a0a0a; }
+      .page-label { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <span class="page-label">Sticker</span>
+
+  <div class="sticker-wrap">
+    <div class="sticker">
+      <div class="new-text">&iexcl;NEW!</div>
+      <div class="band-text">Mexican Standoff</div>
+    </div>
+  </div>
+
+</body>
+</html>
