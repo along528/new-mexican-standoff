@@ -123,27 +123,27 @@
        DIE-CUT RECTANGLE
        ============================================ */
     .sticker-wrap.rect-wrap {
-      width: 3.5in;
-      height: 1.8in;
+      width: 4.0in;
+      height: 1.0in;
+      background: #0a0a0a;
     }
     .rect-sticker {
-      width: 3.2in;
-      height: 1.4in;
-      border-radius: 0.2in;
+      width: 100%;
+      height: 100%;
       background: #0a0a0a;
       position: relative;
       display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
-      gap: 0.15in;
-      overflow: hidden;
+      gap: 0.1in;
+      white-space: nowrap;
     }
-    .rect-sticker .serape-top {
+    .rect-sticker .serape-stripe {
       position: absolute;
-      top: 0;
       left: 0;
       right: 0;
-      height: 0.12in;
+      height: 0.14in;
       background: linear-gradient(to right,
         #c1272d 0%, #c1272d 14%,
         #e8702a 14%, #e8702a 28%,
@@ -153,14 +153,19 @@
         #1b4965 71%, #1b4965 85%,
         #c1272d 85%, #c1272d 100%
       );
+      z-index: 2;
     }
+    .rect-sticker .serape-top { top: 0; }
+    .rect-sticker .serape-bottom { bottom: 0; }
     .rect-sticker .new-text {
-      font-size: 0.6in;
-      margin-top: 0.05in;
+      font-size: 0.34in;
+      margin-top: 0;
+      color: #f0ece4;
     }
     .rect-sticker .band-text {
-      font-size: 0.22in;
-      margin-top: 0.05in;
+      font-size: 0.34in;
+      margin-top: 0;
+      color: #f0ece4;
     }
 
     /* ============================================
@@ -213,7 +218,6 @@
         padding: 40px 20px;
       }
       .sticker-wrap {
-        border-radius: 4px;
         box-shadow: 0 4px 24px rgba(0,0,0,0.5);
       }
       .page-label {
@@ -265,7 +269,8 @@
   <span class="page-label">Die-Cut Rectangle</span>
   <div class="sticker-wrap rect-wrap">
     <div class="rect-sticker">
-      <div class="serape-top"></div>
+      <div class="serape-stripe serape-top"></div>
+      <div class="serape-stripe serape-bottom"></div>
       <div class="new-text">&iexcl;NEW!</div>
       <div class="band-text">Mexican Standoff</div>
     </div>
