@@ -90,11 +90,6 @@
     }
 
     /* ============================================
-       ORIGINAL
-       ============================================ */
-    /* (uses base styles + .has-ring) */
-
-    /* ============================================
        INVERTED
        ============================================ */
     .inverted {
@@ -169,44 +164,6 @@
     }
 
     /* ============================================
-       RECORD LABEL
-       ============================================ */
-    .record-label {
-      background: #0a0a0a;
-    }
-    .record-label .center-hole {
-      position: absolute;
-      width: 0.3in;
-      height: 0.3in;
-      border-radius: 50%;
-      background: #333;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-    }
-    .record-label .groove-ring {
-      position: absolute;
-      inset: 0.2in;
-      border-radius: 50%;
-      border: 1px solid rgba(240,236,228,0.06);
-      z-index: 0;
-    }
-    .record-label .groove-ring:nth-child(2) { inset: 0.35in; }
-    .record-label .groove-ring:nth-child(3) { inset: 0.5in; }
-    .record-label .curved-text {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-    }
-    .record-label .new-text {
-      margin-top: -0.25in;
-    }
-    .record-label .band-text {
-      display: none;
-    }
-
-    /* ============================================
        SCREEN PREVIEW
        ============================================ */
     @media screen {
@@ -273,31 +230,6 @@
       <div class="serape-stripe serape-bottom"></div>
       <div class="new-text">&iexcl;NEW!</div>
       <div class="band-text">Mexican Standoff</div>
-    </div>
-  </div>
-
-  <!-- RECORD LABEL -->
-  <span class="page-label">Record Label</span>
-  <div class="sticker-wrap">
-    <div class="sticker has-ring record-label">
-      <div class="groove-ring"></div>
-      <div class="groove-ring"></div>
-      <div class="groove-ring"></div>
-      <svg class="curved-text" viewBox="0 0 300 300">
-        <defs>
-          <path id="curve-top" d="M 40,150 A 110,110 0 0,1 260,150" fill="none"/>
-          <path id="curve-bottom" d="M 40,150 A 110,110 0 0,0 260,150" fill="none"/>
-        </defs>
-        <text font-family="'Bebas Neue', sans-serif" font-size="22" fill="#f0ece4" letter-spacing="6">
-          <textPath href="#curve-top" startOffset="50%" text-anchor="middle">IMPROVISED MUSIC DUO</textPath>
-        </text>
-        <text font-family="'Bebas Neue', sans-serif" font-size="22" fill="#f0ece4" letter-spacing="4">
-          <textPath href="#curve-bottom" startOffset="50%" text-anchor="middle">BOSTON, MA</textPath>
-        </text>
-      </svg>
-      <div class="new-text">&iexcl;NEW!</div>
-      <div class="band-text">Mexican Standoff</div>
-      <div class="center-hole"></div>
     </div>
   </div>
 
