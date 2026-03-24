@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NMS Font Test</title>
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #f0ece4;
+      font-family: 'Courier New', monospace;
+      padding: 40px 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .svg-heading {
+      display: block;
+      width: 100%;
+      height: auto;
+      fill: currentColor;
+    }
+    .test-row {
+      margin-bottom: 40px;
+    }
+    .test-row .label {
+      font-size: 11px;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .test-row .render {
+      max-width: 800px;
+    }
+    .small .render {
+      max-width: 200px;
+    }
+    .accent { color: #e8702a; }
+    hr { border: none; border-top: 1px solid #2a2a2a; margin: 40px 0; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size: 1.5rem; letter-spacing: 0.1em; margin-bottom: 40px;">NMS FONT TEST</h1>
+
+  <div class="test-row">
+    <div class="label">Full Alphabet</div>
+    <div class="render" data-svg-text="ABCDEFGHIJKLM"></div>
+  </div>
+  <div class="test-row">
+    <div class="label">&nbsp;</div>
+    <div class="render" data-svg-text="NOPQRSTUVWXYZ"></div>
+  </div>
+  <div class="test-row">
+    <div class="label">Punctuation</div>
+    <div class="render small" data-svg-text="¡!"></div>
+  </div>
+
+  <hr>
+
+  <div class="test-row">
+    <div class="label">Hero Line 1 (accent)</div>
+    <div class="render accent" data-svg-text="¡NEW!" style="max-width: 400px;"></div>
+  </div>
+  <div class="test-row">
+    <div class="label">Hero Line 2</div>
+    <div class="render" data-svg-text="MEXICAN"></div>
+  </div>
+  <div class="test-row">
+    <div class="label">Hero Line 3</div>
+    <div class="render" data-svg-text="STANDOFF"></div>
+  </div>
+
+  <hr>
+
+  <div class="test-row small">
+    <div class="label">Section Headers</div>
+    <div class="render" data-svg-text="LISTEN"></div>
+  </div>
+  <div class="test-row small">
+    <div class="label">&nbsp;</div>
+    <div class="render" data-svg-text="SHOWS"></div>
+  </div>
+  <div class="test-row small">
+    <div class="label">&nbsp;</div>
+    <div class="render" data-svg-text="CONTACT"></div>
+  </div>
+
+  <hr>
+
+  <div class="test-row">
+    <div class="label">Previous Shows Page</div>
+    <div class="render" style="max-width: 500px;" data-svg-text="PREVIOUS SHOWS"></div>
+  </div>
+
+  <div class="test-row">
+    <div class="label">Footer Tagline</div>
+    <div class="render" style="max-width: 500px;" data-svg-text="IMPROVISED MUSIC DUO"></div>
+  </div>
+
+  <script src="js/svg-font.js"></script>
+</body>
+</html>

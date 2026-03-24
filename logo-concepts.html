@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logo Concepts — New Mexican Standoff</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0a;
+      color: #f5f0e8;
+      font-family: 'Bebas Neue', sans-serif;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: #999;
+      margin-bottom: 1rem;
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 1.1rem;
+      letter-spacing: 0.25em;
+      color: #555;
+      margin: 2.5rem 0 1.5rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      border-top: 1px solid #222;
+      padding-top: 2rem;
+    }
+
+    .section-label:first-of-type {
+      border-top: none;
+      margin-top: 1.5rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #141414;
+      border: 1px solid #222;
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .card svg {
+      display: block;
+      margin: 0 auto 1.5rem;
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-family: sans-serif;
+      font-size: 0.85rem;
+      color: #888;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Logo Concepts</h1>
+  <p class="subtitle">New Mexican Standoff</p>
+
+  <!-- ==================== ORIGINALS ==================== -->
+  <p class="section-label">Originals (Color)</p>
+  <div class="grid">
+
+    <!-- Original: Standoff Arrows -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="30,80 65,35 75,35 45,75" fill="#c1272d"/>
+        <polygon points="45,75 75,35 85,35 50,80" fill="#e8702a"/>
+        <polygon points="30,80 45,85 75,125 65,125" fill="#f0c040"/>
+        <polygon points="45,85 50,80 85,125 75,125" fill="#1a9988"/>
+        <polygon points="130,80 95,35 85,35 115,75" fill="#d4326d"/>
+        <polygon points="115,75 85,35 75,35 110,80" fill="#1b4965"/>
+        <polygon points="130,80 115,85 85,125 95,125" fill="#c1272d"/>
+        <polygon points="115,85 110,80 75,125 85,125" fill="#e8702a"/>
+        <circle cx="80" cy="80" r="5" fill="#f5f0e8"/>
+      </svg>
+      <h2>Standoff Arrows</h2>
+      <p>Two chevrons facing each other with serape stripes</p>
+    </div>
+
+    <!-- Original: Diamond Crest -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="diamond-og">
+            <polygon points="80,15 145,80 80,145 15,80"/>
+          </clipPath>
+        </defs>
+        <polygon points="80,15 145,80 80,145 15,80" fill="none" stroke="#f5f0e8" stroke-width="2"/>
+        <g clip-path="url(#diamond-og)">
+          <rect x="10" y="15" width="140" height="22" fill="#c1272d"/>
+          <rect x="10" y="37" width="140" height="22" fill="#e8702a"/>
+          <rect x="10" y="59" width="140" height="22" fill="#f0c040"/>
+          <rect x="10" y="81" width="140" height="22" fill="#1a9988"/>
+          <rect x="10" y="103" width="140" height="22" fill="#d4326d"/>
+          <rect x="10" y="125" width="140" height="22" fill="#1b4965"/>
+        </g>
+        <polygon points="80,35 125,80 80,125 35,80" fill="none" stroke="#0a0a0a" stroke-width="2"/>
+      </svg>
+      <h2>Diamond Crest</h2>
+      <p>Diamond outline filled with serape stripes</p>
+    </div>
+
+  </div>
+
+  <!-- ==================== BARRELS VARIATIONS ==================== -->
+  <p class="section-label">Barrels — Variations</p>
+  <div class="grid">
+
+    <!-- V1: Original -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="15" y1="65" x2="145" y2="65" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <line x1="15" y1="95" x2="145" y2="95" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <circle cx="145" cy="65" r="6" fill="#f5f0e8"/>
+        <circle cx="15" cy="95" r="6" fill="#f5f0e8"/>
+      </svg>
+      <h2>Barrels</h2>
+      <p>The original — two lines, two dots, opposite ends</p>
+    </div>
+
+    <!-- V2: Big dot / small dot — asymmetric power -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="15" y1="65" x2="145" y2="65" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <line x1="15" y1="95" x2="145" y2="95" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <circle cx="145" cy="65" r="12" fill="#f5f0e8"/>
+        <circle cx="15" cy="95" r="4" fill="#f5f0e8"/>
+      </svg>
+      <h2>Mismatch</h2>
+      <p>One cannon, one pistol — unequal but both lethal</p>
+    </div>
+
+    <!-- V3: Three lines, converging to dots -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="15" y1="55" x2="145" y2="70" stroke="#f5f0e8" stroke-width="3" stroke-linecap="square"/>
+        <line x1="15" y1="80" x2="145" y2="80" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <line x1="15" y1="105" x2="145" y2="90" stroke="#f5f0e8" stroke-width="3" stroke-linecap="square"/>
+        <circle cx="145" cy="80" r="8" fill="#f5f0e8"/>
+        <circle cx="15" cy="80" r="8" fill="#f5f0e8"/>
+      </svg>
+      <h2>Funnel</h2>
+      <p>Three lines narrowing into two heavy muzzle points</p>
+    </div>
+
+    <!-- V4: Crosshairs — two main lines with short perpendicular ticks -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="15" y1="65" x2="145" y2="65" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <line x1="15" y1="95" x2="145" y2="95" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <!-- Tick marks — like notches on a barrel -->
+        <line x1="50" y1="58" x2="50" y2="72" stroke="#f5f0e8" stroke-width="2" stroke-linecap="square"/>
+        <line x1="80" y1="58" x2="80" y2="72" stroke="#f5f0e8" stroke-width="2" stroke-linecap="square"/>
+        <line x1="110" y1="88" x2="110" y2="102" stroke="#f5f0e8" stroke-width="2" stroke-linecap="square"/>
+        <line x1="80" y1="88" x2="80" y2="102" stroke="#f5f0e8" stroke-width="2" stroke-linecap="square"/>
+        <circle cx="145" cy="65" r="5" fill="#f5f0e8"/>
+        <circle cx="15" cy="95" r="5" fill="#f5f0e8"/>
+      </svg>
+      <h2>Notched</h2>
+      <p>Tick marks along the barrels — keeping count</p>
+    </div>
+
+    <!-- V5: Massive dots, thin lines -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="30" y1="60" x2="130" y2="60" stroke="#f5f0e8" stroke-width="1.5" stroke-linecap="square"/>
+        <line x1="30" y1="100" x2="130" y2="100" stroke="#f5f0e8" stroke-width="1.5" stroke-linecap="square"/>
+        <circle cx="135" cy="60" r="16" fill="#f5f0e8"/>
+        <circle cx="25" cy="100" r="16" fill="#f5f0e8"/>
+      </svg>
+      <h2>Loaded</h2>
+      <p>Thin lines, massive rounds — all the weight is in what's about to fire</p>
+    </div>
+
+    <!-- V6: Staggered with size difference -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="15" y1="60" x2="110" y2="60" stroke="#f5f0e8" stroke-width="5" stroke-linecap="square"/>
+        <line x1="50" y1="100" x2="145" y2="100" stroke="#f5f0e8" stroke-width="3" stroke-linecap="square"/>
+        <circle cx="110" cy="60" r="8" fill="#f5f0e8"/>
+        <circle cx="50" cy="100" r="4" fill="#f5f0e8"/>
+      </svg>
+      <h2>Uneven Draw</h2>
+      <p>Different lengths, different calibers — one got there first</p>
+    </div>
+
+    <!-- V7: Four lines, tight cluster -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="15" y1="58" x2="145" y2="58" stroke="#f5f0e8" stroke-width="2.5" stroke-linecap="square"/>
+        <line x1="15" y1="72" x2="145" y2="72" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <line x1="15" y1="88" x2="145" y2="88" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <line x1="15" y1="102" x2="145" y2="102" stroke="#f5f0e8" stroke-width="2.5" stroke-linecap="square"/>
+        <circle cx="145" cy="72" r="7" fill="#f5f0e8"/>
+        <circle cx="15" cy="88" r="7" fill="#f5f0e8"/>
+      </svg>
+      <h2>Rack</h2>
+      <p>Four barrels stacked — dots mark the ones that are loaded</p>
+    </div>
+
+    <!-- V8: Converging with tiny dots -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="15" y1="50" x2="145" y2="76" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <line x1="15" y1="110" x2="145" y2="84" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <circle cx="145" cy="76" r="3" fill="#f5f0e8"/>
+        <circle cx="15" cy="110" r="3" fill="#f5f0e8"/>
+      </svg>
+      <h2>Pinpoint</h2>
+      <p>Converging aim, tiny dots — precision kill</p>
+    </div>
+
+    <!-- V9: Splayed lines from dots -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <!-- Lines fanning out from each dot -->
+        <line x1="15" y1="80" x2="145" y2="55" stroke="#f5f0e8" stroke-width="3" stroke-linecap="square"/>
+        <line x1="15" y1="80" x2="145" y2="80" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <line x1="15" y1="80" x2="145" y2="105" stroke="#f5f0e8" stroke-width="3" stroke-linecap="square"/>
+        <circle cx="15" cy="80" r="10" fill="#f5f0e8"/>
+        <circle cx="145" cy="80" r="10" fill="#f5f0e8"/>
+      </svg>
+      <h2>Spray</h2>
+      <p>Three barrels fanning from one dot — aimed at the other</p>
+    </div>
+
+    <!-- V10: Lines through both dots -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="10" y1="65" x2="150" y2="65" stroke="#f5f0e8" stroke-width="3" stroke-linecap="square"/>
+        <line x1="10" y1="95" x2="150" y2="95" stroke="#f5f0e8" stroke-width="3" stroke-linecap="square"/>
+        <!-- Both dots on same side — shot through -->
+        <circle cx="40" cy="65" r="10" fill="#f5f0e8"/>
+        <circle cx="120" cy="95" r="10" fill="#f5f0e8"/>
+      </svg>
+      <h2>Through</h2>
+      <p>Lines running through the dots — already hit, still standing</p>
+    </div>
+
+    <!-- V11: Diagonal barrels, big/small -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="20" y1="130" x2="140" y2="40" stroke="#f5f0e8" stroke-width="5" stroke-linecap="square"/>
+        <line x1="20" y1="110" x2="140" y2="20" stroke="#f5f0e8" stroke-width="2" stroke-linecap="square"/>
+        <circle cx="140" cy="40" r="12" fill="#f5f0e8"/>
+        <circle cx="20" cy="110" r="3" fill="#f5f0e8"/>
+      </svg>
+      <h2>Outgunned</h2>
+      <p>Massive round incoming, small one fired back — david and goliath</p>
+    </div>
+
+    <!-- V12: Vertical barrels -->
+    <div class="card">
+      <svg width="160" height="160" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <line x1="60" y1="15" x2="60" y2="145" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <line x1="100" y1="15" x2="100" y2="145" stroke="#f5f0e8" stroke-width="4" stroke-linecap="square"/>
+        <circle cx="60" cy="145" r="7" fill="#f5f0e8"/>
+        <circle cx="100" cy="15" r="7" fill="#f5f0e8"/>
+      </svg>
+      <h2>Vertical</h2>
+      <p>Rotated 90 — same tension, different axis</p>
+    </div>
+
+  </div>
+
+</body>
+</html>

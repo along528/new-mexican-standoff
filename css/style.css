@@ -87,6 +87,39 @@ h1 { font-size: 2.5rem; }
 h2 { font-size: 1.75rem; }
 h3 { font-size: 1.25rem; }
 
+/* Screen-reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* SVG display font */
+.svg-heading {
+  display: block;
+  width: 100%;
+  height: auto;
+  fill: currentColor;
+}
+
+h2 .svg-heading {
+  max-width: 12rem;
+}
+
+.footer-tagline .svg-heading {
+  max-width: 20rem;
+}
+
+.page-heading .svg-heading {
+  max-width: 28rem;
+}
+
 p {
   margin-bottom: 1rem;
   font-size: 0.8125rem;
@@ -153,6 +186,13 @@ section {
   letter-spacing: 0.08em;
   white-space: nowrap;
   color: var(--color-text);
+}
+
+.brand-svg {
+  display: block;
+  height: 1em;
+  width: auto;
+  fill: currentColor;
 }
 
 .brand:hover {

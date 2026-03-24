@@ -1,0 +1,165 @@
+/*  NMS Display Font — SVG glyph renderer
+    Design language: geometric, angular, no curves.
+    Grid: cap-height Y=0, baseline Y=90, bar thickness ~15u.
+    All paths use absolute M/L/Z commands, X normalised to 0. */
+
+const NMS_FONT = {
+  gap: 6, // inter-letter spacing (glyph units)
+
+  glyphs: {
+    // ── Existing (extracted from sticker.html, X shifted to 0) ──
+
+    '¡': {
+      advance: 16,
+      path: 'M 0,0 L 16,0 L 16,14 L 0,14 Z M 0,26 L 16,26 L 16,90 L 0,90 Z'
+    },
+    'N': {
+      advance: 66,
+      path: 'M 0,0 L 0,90 L 8,90 L 14,78 L 20,90 L 66,90 L 66,0 L 51,0 L 41,50 L 15,0 Z'
+    },
+    'E': {
+      advance: 48,
+      path: 'M 0,0 L 48,0 L 48,14 L 0,14 Z M 4,38 L 44,38 L 44,52 L 4,52 Z M 0,76 L 48,76 L 48,90 L 0,90 Z'
+    },
+    'W': {
+      advance: 66,
+      path: 'M 0,0 L 8,0 L 14,12 L 20,0 L 46,0 L 52,12 L 58,0 L 66,0 L 66,90 L 51,90 L 33,40 L 15,90 L 0,90 Z'
+    },
+    '!': {
+      advance: 16,
+      path: 'M 0,0 L 16,0 L 16,64 L 0,64 Z M 0,76 L 16,76 L 16,90 L 0,90 Z'
+    },
+
+    // ── Simple rectangular ──
+
+    'I': {
+      advance: 16,
+      path: 'M 0,0 L 16,0 L 16,90 L 0,90 Z'
+    },
+    'L': {
+      advance: 42,
+      path: 'M 0,0 L 16,0 L 16,76 L 42,76 L 42,90 L 0,90 Z'
+    },
+    'T': {
+      advance: 48,
+      path: 'M 0,0 L 48,0 L 48,14 L 32,14 L 32,90 L 16,90 L 16,14 L 0,14 Z'
+    },
+    'F': {
+      advance: 48,
+      path: 'M 0,0 L 48,0 L 48,14 L 16,14 L 16,38 L 44,38 L 44,52 L 16,52 L 16,90 L 0,90 Z'
+    },
+    'U': {
+      advance: 52,
+      path: 'M 0,0 L 16,0 L 16,76 L 36,76 L 36,0 L 52,0 L 52,90 L 0,90 Z'
+    },
+    'C': {
+      advance: 48,
+      path: 'M 0,0 L 48,0 L 48,14 L 16,14 L 16,76 L 48,76 L 48,90 L 0,90 Z'
+    },
+
+    // ── Compound rectangular ──
+
+    'H': {
+      advance: 52,
+      path: 'M 0,0 L 16,0 L 16,38 L 36,38 L 36,0 L 52,0 L 52,90 L 36,90 L 36,52 L 16,52 L 16,90 L 0,90 Z'
+    },
+    'O': {
+      advance: 52,
+      path: 'M 0,0 L 52,0 L 52,90 L 0,90 Z M 16,14 L 16,76 L 36,76 L 36,14 Z'
+    },
+    'P': {
+      advance: 48,
+      path: 'M 0,0 L 48,0 L 48,52 L 16,52 L 16,90 L 0,90 Z M 16,14 L 16,38 L 32,38 L 32,14 Z'
+    },
+    'D': {
+      advance: 52,
+      path: 'M 0,0 L 36,0 L 52,14 L 52,76 L 36,90 L 0,90 Z M 16,14 L 16,76 L 32,76 L 38,68 L 38,22 L 32,14 Z'
+    },
+    'S': {
+      advance: 48,
+      path: 'M 0,0 L 48,0 L 48,14 L 16,14 L 16,38 L 48,38 L 48,90 L 0,90 L 0,76 L 32,76 L 32,52 L 0,52 Z'
+    },
+    'B': {
+      advance: 48,
+      path: 'M 0,0 L 48,0 L 48,38 L 44,42 L 48,46 L 48,90 L 0,90 Z M 16,14 L 16,36 L 32,36 L 32,14 Z M 16,52 L 16,76 L 32,76 L 32,52 Z'
+    },
+    'G': {
+      advance: 52,
+      path: 'M 0,0 L 52,0 L 52,14 L 16,14 L 16,76 L 36,76 L 36,52 L 26,52 L 26,38 L 52,38 L 52,90 L 0,90 Z'
+    },
+
+    // ── Diagonal letters ──
+
+    'A': {
+      advance: 54,
+      path: 'M 0,90 L 18,0 L 36,0 L 54,90 L 38,90 L 34,72 L 20,72 L 16,90 Z M 23,58 L 31,58 L 27,16 Z'
+    },
+    'V': {
+      advance: 54,
+      path: 'M 0,0 L 16,0 L 27,68 L 38,0 L 54,0 L 35,90 L 19,90 Z'
+    },
+    'R': {
+      advance: 50,
+      path: 'M 0,0 L 48,0 L 48,52 L 34,52 L 50,90 L 34,90 L 18,52 L 16,52 L 16,90 L 0,90 Z M 16,14 L 16,38 L 32,38 L 32,14 Z'
+    },
+    'M': {
+      advance: 70,
+      path: 'M 0,0 L 16,0 L 35,50 L 54,0 L 70,0 L 70,90 L 56,90 L 56,30 L 42,62 L 28,62 L 14,30 L 14,90 L 0,90 Z'
+    },
+    'X': {
+      advance: 50,
+      path: 'M 0,0 L 16,0 L 25,32 L 34,0 L 50,0 L 35,42 L 50,90 L 34,90 L 25,56 L 16,90 L 0,90 L 15,42 Z'
+    },
+    'K': {
+      advance: 50,
+      path: 'M 0,0 L 16,0 L 16,34 L 34,0 L 52,0 L 30,40 L 50,90 L 34,90 L 18,50 L 16,52 L 16,90 L 0,90 Z'
+    },
+    'Y': {
+      advance: 50,
+      path: 'M 0,0 L 16,0 L 25,34 L 34,0 L 50,0 L 33,48 L 33,90 L 17,90 L 17,48 Z'
+    },
+
+    // ── Space ──
+    ' ': { advance: 20, path: '' }
+  },
+
+  /* Shift every X coordinate in a path string by dx */
+  _offsetPath(d, dx) {
+    if (!d) return '';
+    return d.replace(/([MLZ])\s*([\d.]+),([\d.]+)/g, function(_, cmd, x, y) {
+      return cmd + ' ' + (parseFloat(x) + dx) + ',' + y;
+    });
+  },
+
+  /* Render text into an SVG inside el */
+  render(text, el) {
+    var chars = text.toUpperCase().split('');
+    var x = 0;
+    var paths = [];
+
+    for (var i = 0; i < chars.length; i++) {
+      var g = this.glyphs[chars[i]];
+      if (!g) continue;
+      if (g.path) {
+        paths.push('<path d="' + this._offsetPath(g.path, x) + '"/>');
+      }
+      x += g.advance + this.gap;
+    }
+
+    if (x > this.gap) x -= this.gap; // remove trailing gap
+    var svg = '<svg class="svg-heading" viewBox="0 0 ' + x + ' 90" ' +
+              'role="img" aria-hidden="true" preserveAspectRatio="xMinYMid meet">' +
+              paths.join('') + '</svg>';
+    el.insertAdjacentHTML('afterbegin', svg);
+  },
+
+  /* Auto-initialise all [data-svg-text] elements */
+  init() {
+    var els = document.querySelectorAll('[data-svg-text]');
+    for (var i = 0; i < els.length; i++) {
+      this.render(els[i].getAttribute('data-svg-text'), els[i]);
+    }
+  }
+};
+
+document.addEventListener('DOMContentLoaded', function() { NMS_FONT.init(); });
