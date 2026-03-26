@@ -95,8 +95,8 @@ const NMS_FONT = {
       path: 'M 0,0 L 52,0 L 52,90 L 32,90 L 32,52 L 20,52 L 20,90 L 0,90 Z M 20,14 L 20,38 L 32,38 L 32,14 Z'
     },
     'V': {
-      advance: 54,
-      path: 'M 0,0 L 16,0 L 27,68 L 38,0 L 54,0 L 35,90 L 19,90 Z'
+      advance: 66,
+      path: 'M 0,0 L 15,0 L 33,50 L 51,0 L 66,0 L 66,14 L 46,90 L 20,90 L 0,14 Z'
     },
     'R': {
       advance: 48,
