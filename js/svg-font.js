@@ -91,8 +91,8 @@ const NMS_FONT = {
     // ── Diagonal letters ──
 
     'A': {
-      advance: 54,
-      path: 'M 0,0 L 54,0 L 54,90 L 38,90 L 38,52 L 16,52 L 16,90 L 0,90 Z M 16,14 L 38,14 L 38,38 L 16,38 Z'
+      advance: 52,
+      path: 'M 0,0 L 52,0 L 52,90 L 32,90 L 32,52 L 20,52 L 20,90 L 0,90 Z M 20,14 L 20,38 L 32,38 L 32,14 Z'
     },
     'V': {
       advance: 54,
