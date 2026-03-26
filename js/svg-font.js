@@ -36,6 +36,10 @@ const NMS_FONT = {
       advance: 16,
       path: 'M 0,0 L 16,0 L 16,90 L 0,90 Z'
     },
+    'J': {
+      advance: 48,
+      path: 'M 28,0 L 48,0 L 48,90 L 0,90 L 0,52 L 12,52 L 12,76 L 28,76 Z'
+    },
     'L': {
       advance: 48,
       path: 'M 0,0 L 36,0 L 36,90 L 0,90 Z M 36,76 L 48,76 L 48,90 L 36,90 Z'
@@ -125,7 +129,7 @@ const NMS_FONT = {
     },
     'Z': {
       advance: 48,
-      path: 'M 0,0 L 48,0 L 48,14 L 18,76 L 48,76 L 48,90 L 0,90 L 0,76 L 30,14 L 0,14 Z'
+      path: 'M 0,0 L 48,0 L 48,52 L 36,52 L 36,76 L 48,76 L 48,90 L 0,90 L 0,38 L 12,38 L 12,14 L 0,14 Z'
     },
 
     // ── Space ──
