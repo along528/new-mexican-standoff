@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Mexican Standoff — Marigold, Brattleboro — July 4, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ============================================
+       Poster — printable 11x17 portrait
+       ============================================ */
+    html, body { background: #1a1a1a; }
+
+    body::after { opacity: 0.05; } /* a bit more grain for print */
+
+    .poster-stage {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .poster {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      aspect-ratio: 11 / 17;
+      background: var(--color-bg);
+      color: var(--color-text);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    /* Top + bottom serape bars */
+    .poster::before,
+    .poster::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 10px;
+      background: var(--serape);
+      z-index: 2;
+    }
+    .poster::before { top: 0; }
+    .poster::after  { bottom: 0; }
+
+    .poster-inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 2.75rem 2.25rem 2.25rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Big stacked title */
+    .poster-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: clamp(3rem, 11vw, 6.25rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .poster-title .line { display: block; }
+
+    .poster-title .accent {
+      color: var(--color-accent);
+    }
+
+    .poster-tagline {
+      font-family: var(--font-body);
+      font-style: italic;
+      color: var(--color-text);
+      letter-spacing: 0.06em;
+      font-size: 0.8125rem;
+      margin-bottom: 1rem;
+      white-space: nowrap;
+    }
+
+    .poster-weapons-top {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-accent);
+      font-size: 0.6875rem;
+      border-top: 1px solid var(--color-border);
+      padding-top: 0.9rem;
+      margin-bottom: 1.75rem;
+    }
+
+    /* Photo block — matches homepage treatment */
+    .poster-photo {
+      position: relative;
+      margin: 0 -2.25rem 1.75rem;
+      padding: 4px 0;
+      background: var(--serape);
+    }
+
+    .poster-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Details block — date / venue / city */
+    .poster-details {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem 1.5rem;
+      align-items: start;
+      margin-bottom: auto;
+    }
+
+    .poster-venue-block .poster-venue {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 8vw, 4.5rem);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .poster-venue-block .poster-city {
+      font-family: var(--font-body);
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      font-size: 0.75rem;
+      color: var(--color-text);
+      margin-top: 0.5rem;
+    }
+
+    .poster-date {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 7.5vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .poster-date .weekday {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      letter-spacing: 0.24em;
+      color: var(--color-text);
+      margin-top: 0.5rem;
+    }
+
+    /* Bottom meta row */
+    .poster-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      font-family: var(--font-body);
+      font-size: 0.625rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      padding-top: 1.5rem;
+    }
+
+    .poster-meta .url { color: var(--color-text); }
+
+    /* Print: one poster per page, no stage padding */
+    @media print {
+      html, body { background: #fff; }
+      body::after { display: none; } /* grain doesn't print well */
+      .poster-stage { padding: 0; min-height: auto; }
+      .poster {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: auto;
+        height: 100vh;
+        box-shadow: none;
+      }
+      @page { size: 11in 17in; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poster-stage">
+    <article class="poster" aria-label="Concert poster">
+      <div class="poster-inner">
+
+        <h1 class="poster-title">
+          <span class="line accent">¡new!</span>
+          <span class="line">mexican</span>
+          <span class="line">standoff</span>
+        </h1>
+
+        <p class="poster-tagline">Like the old kind, but now nobody DIES.</p>
+
+        <p class="poster-weapons-top">
+          Weapons of choice: keys · sticks · horns · mouths · axes · knobs
+        </p>
+
+        <div class="poster-photo">
+          <img src="images/band.jpg" alt="New Mexican Standoff live">
+        </div>
+
+        <div class="poster-details">
+          <div class="poster-venue-block">
+            <div class="poster-venue">Marigold</div>
+            <div class="poster-city">Brattleboro · Vermont</div>
+          </div>
+
+          <div class="poster-date">
+            July 4 · 2026
+            <span class="weekday">Saturday</span>
+          </div>
+        </div>
+
+        <div class="poster-meta">
+          <span>Improvised Music Duo · Boston MA</span>
+          <span class="url">newmexicanstandoff.com</span>
+        </div>
+
+      </div>
+    </article>
+  </div>
+
+</body>
+</html>
