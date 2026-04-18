@@ -8,7 +8,7 @@ Static website for New Mexican Standoff (improvised music duo, Boston MA). Plain
 
 ## Architecture
 
-- `index.html` — Homepage (hero, photo, about, shows, contact, footer)
+- `index.html` — Homepage (hero, photo, about, listen, watch, shows, contact, footer)
 - `previous-shows.html` — Past shows archive
 - `css/style.css` — Single stylesheet, mobile-first with one breakpoint at 768px
 - `images/` — Band photos
