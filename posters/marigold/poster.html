@@ -45,6 +45,52 @@
       z-index: 1;
     }
 
+    .poster-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .poster-top-left { flex: 1; min-width: 0; }
+    .poster-top-right {
+      flex: 0 0 46%;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 0.6rem;
+      margin-right: 3%;
+    }
+
+    .poster-guest-img {
+      flex: 0 0 56%;
+      width: 56%;
+      height: auto;
+      display: block;
+    }
+
+    .poster-guest-caption {
+      font-family: var(--font-body);
+      font-style: italic;
+      color: var(--color-text);
+      font-size: 0.8125rem;
+      line-height: 1.25;
+      letter-spacing: 0.03em;
+      text-align: right;
+      margin: 0;
+      flex: 1;
+    }
+
+    .poster-guest-caption strong {
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      display: block;
+      font-size: 0.8125rem;
+      margin-top: 0.15rem;
+    }
+
     /* Big stacked title */
     .poster-title {
       font-family: var(--font-display);
@@ -52,8 +98,8 @@
       line-height: 0.88;
       letter-spacing: 0.03em;
       text-transform: uppercase;
-      font-size: clamp(3rem, 11vw, 6.25rem);
-      margin-bottom: 0.75rem;
+      font-size: clamp(3.25rem, 12.5vw, 7.25rem);
+      margin-bottom: 0;
     }
 
     .poster-title .line { display: block; }
@@ -158,17 +204,25 @@
     <article class="poster" aria-label="Concert poster">
       <div class="poster-inner">
 
-        <h1 class="poster-title">
-          <span class="line accent">¡new!</span>
-          <span class="line">mexican</span>
-          <span class="line">standoff</span>
-        </h1>
+        <div class="poster-top">
+          <div class="poster-top-left">
+            <h1 class="poster-title">
+              <span class="line accent">¡new!</span>
+              <span class="line">mexican</span>
+              <span class="line">standoff</span>
+            </h1>
+          </div>
+          <div class="poster-top-right">
+            <img class="poster-guest-img" src="jon.png" alt="Jon Keane">
+            <p class="poster-guest-caption">
+              Featuring special guest guitarist
+              <strong>Jon Keane</strong>
+              Brattleboro's very own
+            </p>
+          </div>
+        </div>
 
         <p class="poster-tagline">Like the old kind, but now nobody DIES.</p>
-
-        <p class="poster-weapons-top">
-          Weapons of choice: keys · sticks · horns · mouths · axes · knobs
-        </p>
 
         <div class="poster-photo">
           <img src="../../images/band.jpg" alt="New Mexican Standoff live">
