@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Mexican Standoff — Marigold, Brattleboro — July 4, 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    /* ============================================
+       Poster — printable 11x17 portrait
+       ============================================ */
+    html, body { background: var(--color-bg); }
+
+    body::after { display: none; } /* no grain on poster */
+
+    .poster-stage {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .poster {
+      position: relative;
+      width: 100%;
+      max-width: 680px;
+      aspect-ratio: 11 / 17;
+      background: transparent;
+      color: var(--color-text);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .poster-inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 0 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .poster-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .poster-top-left { flex: 1; min-width: 0; }
+    .poster-top-right {
+      flex: 0 0 46%;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 0.6rem;
+      margin-right: 3%;
+    }
+
+    .poster-guest-img {
+      flex: 0 0 56%;
+      width: 56%;
+      height: auto;
+      display: block;
+    }
+
+    .poster-guest-caption {
+      font-family: var(--font-body);
+      font-weight: bold;
+      color: var(--color-text);
+      font-size: 1rem;
+      line-height: 1.25;
+      letter-spacing: 0.03em;
+      text-align: right;
+      margin: 0;
+      flex: 1;
+    }
+
+    .poster-guest-caption strong {
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      display: block;
+      font-size: 1.2rem;
+      margin-top: 0.15rem;
+    }
+
+    /* Big stacked title */
+    .poster-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: clamp(3.25rem, 12.5vw, 7.25rem);
+      margin-bottom: 0;
+    }
+
+    .poster-title .line { display: block; }
+
+    .poster-title .accent {
+      color: var(--color-accent);
+    }
+
+    .poster-tagline {
+      font-family: var(--font-body);
+      font-style: italic;
+      color: var(--color-text);
+      letter-spacing: 0.06em;
+      font-size: 0.8125rem;
+      margin-bottom: 1rem;
+      white-space: nowrap;
+    }
+
+    .poster-weapons-top {
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-accent);
+      font-size: 1rem;
+      font-weight: bold;
+      border-top: 1px solid var(--color-border);
+      padding-top: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Photo block — matches homepage treatment */
+    .poster-photo {
+      position: relative;
+      margin: 0 0 1rem;
+      padding: 4px 0;
+      background: var(--serape);
+    }
+
+    .poster-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Details block — two columns, each sub-line in its own row so they line up */
+    .poster-details {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      column-gap: 1.5rem;
+      row-gap: 0.3rem;
+      align-items: start;
+      margin: 0 0 auto;
+    }
+
+    .poster-venue {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 10vw, 5.5rem);
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .poster-date {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 9.5vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .poster-city,
+    .poster-weekday {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      font-weight: bold;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--color-text);
+    }
+
+    .poster-city { margin-left: 0.2em; }
+    .poster-weekday { text-align: right; }
+
+    /* Bottom meta row */
+    /* Print: one poster per page, no stage padding */
+    @media print {
+      html, body { background: #fff; }
+      body::after { display: none; } /* grain doesn't print well */
+      .poster-stage { padding: 0; min-height: auto; }
+      .poster {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: auto;
+        height: 100vh;
+        box-shadow: none;
+      }
+      @page { size: 11in 17in; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="poster-stage">
+    <article class="poster" aria-label="Concert poster">
+      <div class="poster-inner">
+
+        <div class="poster-top">
+          <div class="poster-top-left">
+            <h1 class="poster-title">
+              <span class="line accent">¡new!</span>
+              <span class="line">mexican</span>
+              <span class="line">standoff</span>
+            </h1>
+          </div>
+          <div class="poster-top-right">
+            <img class="poster-guest-img" src="jon.png" alt="Jon Keane">
+            <p class="poster-guest-caption">
+              Featuring special guest guitarist
+              Brattleboro's very own
+              <strong>Jon Keane</strong>
+            </p>
+          </div>
+        </div>
+
+        <p class="poster-tagline">Like the old kind, but now nobody DIES.</p>
+
+        <div class="poster-photo">
+          <img src="../../images/band.jpg" alt="New Mexican Standoff live">
+        </div>
+
+        <div class="poster-details">
+          <div class="poster-venue">Marigold</div>
+          <div class="poster-date">July 4 · 2026</div>
+
+          <div class="poster-city">Brattleboro</div>
+          <div class="poster-weekday">Saturday</div>
+
+          <div class="poster-city">Vermont</div>
+          <div class="poster-weekday">Doors 7pm</div>
+
+          <div class="poster-city">157 Main St</div>
+          <div class="poster-weekday">Music 8pm · Free</div>
+        </div>
+
+      </div>
+    </article>
+  </div>
+
+</body>
+</html>
