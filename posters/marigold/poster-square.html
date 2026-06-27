@@ -3,14 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>New Mexican Standoff — Marigold, Brattleboro — July 4, 2026</title>
+  <title>New Mexican Standoff — Marigold, Brattleboro — July 4, 2026 (square)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css">
   <style>
     /* ============================================
-       Poster — printable 11x17 portrait
+       Poster — 1:1 square for Instagram (1080×1080)
+       Sister file to poster.html (11x17 portrait).
+       Fixed sizing tuned for a 1080px-wide canvas.
        ============================================ */
     html, body { background: var(--color-bg); }
 
@@ -27,8 +29,8 @@
     .poster {
       position: relative;
       width: 100%;
-      max-width: 680px;
-      aspect-ratio: 11 / 17;
+      max-width: 1080px;
+      aspect-ratio: 1 / 1;
       background: transparent;
       color: var(--color-text);
       display: flex;
@@ -40,7 +42,7 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      padding: 2rem 0 1rem;
+      padding: 3.5% 3.5% 3%;
       position: relative;
       z-index: 1;
     }
@@ -48,23 +50,22 @@
     .poster-top {
       display: flex;
       align-items: flex-start;
-      gap: 1rem;
+      gap: 1.5rem;
       margin-bottom: 0.75rem;
     }
 
     .poster-top-left { flex: 1; min-width: 0; }
     .poster-top-right {
-      flex: 0 0 46%;
+      flex: 0 0 42%;
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
-      gap: 0.6rem;
-      margin-right: 3%;
+      gap: 0.75rem;
     }
 
     .poster-guest-img {
-      flex: 0 0 56%;
-      width: 56%;
+      flex: 0 0 52%;
+      width: 52%;
       height: auto;
       display: block;
     }
@@ -73,7 +74,7 @@
       font-family: var(--font-body);
       font-weight: bold;
       color: var(--color-text);
-      font-size: 1rem;
+      font-size: 1.25rem;
       line-height: 1.25;
       letter-spacing: 0.03em;
       text-align: right;
@@ -87,7 +88,7 @@
       letter-spacing: 0.1em;
       color: var(--color-accent);
       display: block;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       margin-top: 0.15rem;
     }
 
@@ -95,10 +96,10 @@
     .poster-title {
       font-family: var(--font-display);
       font-weight: 400;
-      line-height: 0.88;
+      line-height: 0.86;
       letter-spacing: 0.03em;
       text-transform: uppercase;
-      font-size: clamp(3.25rem, 12.5vw, 7.25rem);
+      font-size: 6.5rem;
       margin-bottom: 0;
     }
 
@@ -113,23 +114,12 @@
       font-style: italic;
       color: var(--color-text);
       letter-spacing: 0.06em;
-      font-size: 0.8125rem;
+      font-size: 1.05rem;
       margin-bottom: 1rem;
       white-space: nowrap;
     }
 
-    .poster-weapons-top {
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--color-accent);
-      font-size: 1rem;
-      font-weight: bold;
-      border-top: 1px solid var(--color-border);
-      padding-top: 0.75rem;
-      margin-bottom: 1.25rem;
-    }
-
-    /* Photo block — matches homepage treatment */
+    /* Photo block — matches homepage treatment, cropped to a strip for square */
     .poster-photo {
       position: relative;
       margin: 0 0 1rem;
@@ -139,6 +129,9 @@
 
     .poster-photo img {
       width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center 30%;
       display: block;
     }
 
@@ -149,12 +142,12 @@
       column-gap: 1.5rem;
       row-gap: 0.3rem;
       align-items: start;
-      margin: 0 0 auto;
+      margin: auto 0 0;
     }
 
     .poster-venue {
       font-family: var(--font-display);
-      font-size: clamp(2.75rem, 10vw, 5.5rem);
+      font-size: 4.5rem;
       line-height: 0.9;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -162,7 +155,7 @@
 
     .poster-date {
       font-family: var(--font-display);
-      font-size: clamp(2.75rem, 9.5vw, 5rem);
+      font-size: 4rem;
       line-height: 0.95;
       letter-spacing: 0.04em;
       color: var(--color-accent);
@@ -173,7 +166,7 @@
     .poster-city,
     .poster-weekday {
       font-family: var(--font-body);
-      font-size: 1.125rem;
+      font-size: 1.3rem;
       font-weight: bold;
       letter-spacing: 0.24em;
       text-transform: uppercase;
@@ -182,22 +175,6 @@
 
     .poster-city { margin-left: 0.2em; }
     .poster-weekday { text-align: right; }
-
-    /* Bottom meta row */
-    /* Print: one poster per page, no stage padding */
-    @media print {
-      html, body { background: #fff; }
-      body::after { display: none; } /* grain doesn't print well */
-      .poster-stage { padding: 0; min-height: auto; }
-      .poster {
-        width: 100%;
-        max-width: none;
-        aspect-ratio: auto;
-        height: 100vh;
-        box-shadow: none;
-      }
-      @page { size: 11in 17in; margin: 0; }
-    }
   </style>
 </head>
 <body>
