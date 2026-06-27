@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Mexican Standoff — Marigold, Brattleboro — July 4, 2026 (square)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    /* ============================================
+       Poster — 1:1 square for Instagram (1080×1080)
+       Sister file to poster.html (11x17 portrait).
+       Fixed sizing tuned for a 1080px-wide canvas.
+       ============================================ */
+    html, body { background: var(--color-bg); }
+
+    body::after { display: none; } /* no grain on poster */
+
+    .poster-stage {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .poster {
+      position: relative;
+      width: 100%;
+      max-width: 1080px;
+      aspect-ratio: 1 / 1;
+      background: transparent;
+      color: var(--color-text);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .poster-inner {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 3.5% 3.5% 3%;
+      position: relative;
+      z-index: 1;
+    }
+
+    .poster-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .poster-top-left { flex: 1; min-width: 0; }
+    .poster-top-right {
+      flex: 0 0 42%;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .poster-guest-img {
+      flex: 0 0 52%;
+      width: 52%;
+      height: auto;
+      display: block;
+    }
+
+    .poster-guest-caption {
+      font-family: var(--font-body);
+      font-weight: bold;
+      color: var(--color-text);
+      font-size: 1.25rem;
+      line-height: 1.25;
+      letter-spacing: 0.03em;
+      text-align: right;
+      margin: 0;
+      flex: 1;
+    }
+
+    .poster-guest-caption strong {
+      font-style: normal;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-accent);
+      display: block;
+      font-size: 1.5rem;
+      margin-top: 0.15rem;
+    }
+
+    /* Big stacked title */
+    .poster-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      line-height: 0.86;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: 6.5rem;
+      margin-bottom: 0;
+    }
+
+    .poster-title .line { display: block; }
+
+    .poster-title .accent {
+      color: var(--color-accent);
+    }
+
+    .poster-tagline {
+      font-family: var(--font-body);
+      font-style: italic;
+      color: var(--color-text);
+      letter-spacing: 0.06em;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      white-space: nowrap;
+    }
+
+    /* Photo block — matches homepage treatment, cropped to a strip for square */
+    .poster-photo {
+      position: relative;
+      margin: 0 0 1rem;
+      padding: 4px 0;
+      background: var(--serape);
+    }
+
+    .poster-photo img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    /* Details block — two columns, each sub-line in its own row so they line up */
+    .poster-details {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      column-gap: 1.5rem;
+      row-gap: 0.3rem;
+      align-items: start;
+      margin: auto 0 0;
+    }
+
+    .poster-venue {
+      font-family: var(--font-display);
+      font-size: 4.5rem;
+      line-height: 0.9;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .poster-date {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .poster-city,
+    .poster-weekday {
+      font-family: var(--font-body);
+      font-size: 1.3rem;
+      font-weight: bold;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--color-text);
+    }
+
+    .poster-city { margin-left: 0.2em; }
+    .poster-weekday { text-align: right; }
+  </style>
+</head>
+<body>
+
+  <div class="poster-stage">
+    <article class="poster" aria-label="Concert poster">
+      <div class="poster-inner">
+
+        <div class="poster-top">
+          <div class="poster-top-left">
+            <h1 class="poster-title">
+              <span class="line accent">¡new!</span>
+              <span class="line">mexican</span>
+              <span class="line">standoff</span>
+            </h1>
+          </div>
+          <div class="poster-top-right">
+            <img class="poster-guest-img" src="jon.png" alt="Jon Keane">
+            <p class="poster-guest-caption">
+              Featuring special guest guitarist
+              Brattleboro's very own
+              <strong>Jon Keane</strong>
+            </p>
+          </div>
+        </div>
+
+        <p class="poster-tagline">Like the old kind, but now nobody DIES.</p>
+
+        <div class="poster-photo">
+          <img src="../../images/band.jpg" alt="New Mexican Standoff live">
+        </div>
+
+        <div class="poster-details">
+          <div class="poster-venue">Marigold</div>
+          <div class="poster-date">July 4 · 2026</div>
+
+          <div class="poster-city">Brattleboro</div>
+          <div class="poster-weekday">Saturday</div>
+
+          <div class="poster-city">Vermont</div>
+          <div class="poster-weekday">Doors 5pm</div>
+
+          <div class="poster-city">157 Main St</div>
+          <div class="poster-weekday">Music 8pm · Free</div>
+        </div>
+
+      </div>
+    </article>
+  </div>
+
+</body>
+</html>
