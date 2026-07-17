@@ -488,10 +488,22 @@ section {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  transition: background 0.3s;
+  animation: serape-banner-cycle 30s infinite;
+}
+
+/* Ordered so text color flips only twice per cycle: dark on the warm/
+   light stripes, cream on the deep ones */
+@keyframes serape-banner-cycle {
+  0%, 100% { background-color: #e8702a; color: #0a0a0a; }
+  17%      { background-color: #f0c040; color: #0a0a0a; }
+  33%      { background-color: #1a9988; color: #0a0a0a; }
+  50%      { background-color: #d4326d; color: #f0ece4; }
+  67%      { background-color: #1b4965; color: #f0ece4; }
+  83%      { background-color: #c1272d; color: #f0ece4; }
 }
 
 .show-banner:hover {
+  animation: none;
   background: var(--color-text);
   color: var(--color-bg);
   text-decoration: none;
