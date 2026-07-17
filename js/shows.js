@@ -9,6 +9,7 @@ function loadShows(containerId, mode) {
     .then(function (res) { return res.text(); })
     .then(function (csv) {
       var shows = parseCSV(csv);
+      renderShowBanner(shows);
       var today = todayString();
 
       var filtered;
@@ -45,6 +46,28 @@ function loadShows(containerId, mode) {
     .catch(function () {
       container.innerHTML = '<p style="color:var(--color-text-muted)">Unable to load shows.</p>';
     });
+}
+
+// Show a banner linking to the next show when it's within the next 2 weeks.
+// The banner element only exists on pages that opt in.
+function renderShowBanner(shows) {
+  var banner = document.getElementById('show-banner');
+  if (!banner) return;
+
+  var today = todayString();
+  var cutoff = dateString(14);
+  var upcoming = shows
+    .filter(function (s) { return s.date >= today && s.date <= cutoff; })
+    .sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+  if (upcoming.length === 0) return;
+
+  var show = upcoming[0];
+  var when = show.date === today ? 'Today' : formatDate(show.date, 'upcoming');
+  banner.href = show.url;
+  banner.innerHTML = '<span class="show-banner-date">' + when + '</span> '
+    + escapeHTML(show.venue) + ' &middot; ' + escapeHTML(show.location)
+    + ' <span class="show-banner-arrow">&rarr;</span>';
+  banner.style.display = '';
 }
 
 function parseCSV(text) {
@@ -97,7 +120,12 @@ function parseCSVLine(line) {
 }
 
 function todayString() {
+  return dateString(0);
+}
+
+function dateString(offsetDays) {
   var d = new Date();
+  d.setDate(d.getDate() + offsetDays);
   var mm = String(d.getMonth() + 1).padStart(2, '0');
   var dd = String(d.getDate()).padStart(2, '0');
   return d.getFullYear() + '-' + mm + '-' + dd;

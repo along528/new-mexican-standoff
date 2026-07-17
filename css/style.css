@@ -475,6 +475,36 @@ section {
   letter-spacing: 0.06em;
 }
 
+/* ============================================
+   Upcoming Show Banner
+   ============================================ */
+.show-banner {
+  display: block;
+  background: var(--color-accent);
+  color: var(--color-bg);
+  text-align: center;
+  padding: 0.55rem var(--gutter);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: background 0.3s;
+}
+
+.show-banner:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+.show-banner-date {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  margin-right: 0.35rem;
+  vertical-align: -0.08em;
+}
+
 .no-shows {
   color: var(--color-text-muted);
   font-size: 0.8125rem;
