@@ -22,6 +22,11 @@
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="brand">¡New!</a>
+      <!-- Upcoming show banner (populated by js/shows.js) -->
+      <div class="show-banner" id="show-banner" style="display:none">
+        <a class="show-banner-next" id="show-banner-next" target="_blank" rel="noopener"></a>
+        <a class="show-banner-all" href="index.html#shows">All Shows</a>
+      </div>
       <div class="header-right">
         <nav class="social-icons" aria-label="Social links">
           <a href="https://www.instagram.com/newmexband" target="_blank" rel="noopener" aria-label="Instagram">
@@ -42,9 +47,6 @@
       </div>
     </div>
   </header>
-
-  <!-- Upcoming show banner (populated by js/shows.js) -->
-  <a class="show-banner" id="show-banner" style="display:none" target="_blank" rel="noopener"></a>
 
   <!-- Mobile Menu -->
   <nav class="mobile-menu" aria-label="Mobile navigation">

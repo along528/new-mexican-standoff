@@ -52,7 +52,8 @@ function loadShows(containerId, mode) {
 // The banner element only exists on pages that opt in.
 function renderShowBanner(shows) {
   var banner = document.getElementById('show-banner');
-  if (!banner) return;
+  var next = document.getElementById('show-banner-next');
+  if (!banner || !next) return;
 
   var today = todayString();
   var cutoff = dateString(14);
@@ -63,9 +64,11 @@ function renderShowBanner(shows) {
 
   var show = upcoming[0];
   var when = show.date === today ? 'Today' : formatDate(show.date, 'upcoming');
-  banner.href = show.url;
-  banner.innerHTML = '<span class="show-banner-date">' + when + '</span> '
-    + escapeHTML(show.venue) + ' &middot; ' + escapeHTML(show.location)
+  next.href = show.url;
+  next.innerHTML = '<span class="show-banner-label">Next Show</span> '
+    + '<span class="show-banner-date">' + when + '</span> '
+    + escapeHTML(show.venue)
+    + '<span class="show-banner-loc"> &middot; ' + escapeHTML(show.location) + '</span>'
     + ' <span class="show-banner-arrow">&rarr;</span>';
   banner.style.display = '';
 }
