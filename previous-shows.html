@@ -107,6 +107,8 @@
   </footer>
 
   <script src="js/shows.js"></script>
+  <!-- Kept in its own block so an error in the menu script below can't stop shows from loading. -->
+  <script>loadShows('show-list', 'past');</script>
 
   <!-- ============================================
        Menu Toggle Script
@@ -130,7 +132,6 @@
         });
       });
     })();
-    loadShows('show-list', 'past');
   </script>
 
 </body>
