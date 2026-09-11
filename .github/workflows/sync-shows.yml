@@ -1,0 +1,40 @@
+# Keeps data/shows.csv in step with the published Google Sheet.
+#
+# The site renders shows from the committed snapshot first, so without this the
+# snapshot goes stale and visitors who can't reach docs.google.com (iOS Safari
+# with a content blocker) would see outdated shows. Pushing to main also
+# redeploys GitHub Pages, so a sheet edit reaches the site on its own.
+name: Sync shows from sheet
+
+on:
+  schedule:
+    - cron: '0 */3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-shows
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pull the published sheet
+        run: ./scripts/sync-shows.sh
+
+      - name: Commit if the shows changed
+        run: |
+          if git diff --quiet -- data/shows.csv; then
+            echo "No show changes."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/shows.csv
+          git commit -m 'chore: sync shows from sheet'
+          git push
